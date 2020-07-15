@@ -5,8 +5,13 @@ import store from './store'
 
 Vue.config.productionTip = false
 
+const authData = localStorage.getItem('auth')
+
 new Vue({
   router,
   store,
+  data: {
+    auth: authData ? JSON.parse(authData) : {}
+  },
   render: h => h(App)
 }).$mount('#app')

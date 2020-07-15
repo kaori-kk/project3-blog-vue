@@ -23,6 +23,8 @@
 </template>
 
 <script>
+import Axios from "axios";
+
 export default {
   data() {
     return {
@@ -34,6 +36,16 @@ export default {
   methods: {
     registerUser(){
       console.log(this.name)
+      Axios.post("https://react-blog-api.bahdcasts.com/api/auth/register", {
+        name: this.name,
+        email: this.email,
+        password: this.password
+      }).then(response => { 
+        localStrorage.setItem('auth', JSON.stringify(response.data.data))
+        this.$root.auth = response.data.data;
+      }).catch(error => {
+        console.log(error)
+      })
     }
   }
 }
