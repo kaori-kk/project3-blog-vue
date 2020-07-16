@@ -18,15 +18,23 @@
       <li class="nav-item">
         <router-link class="nav-link" to="/signup">Signup</router-link>
       </li>
-      <!-- <li class="nav-item dropdown">
+      <li class="nav-item dropdown" v-if="$root.auth.user">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Hey Kaori
+          Hey {{$root.auth.user.name}}
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="#">Logout</a>
         </div>
-      </li> -->
+      </li>
     </ul>
   </div>
   </nav>
 </template>
+
+<script>
+export default {
+  mounted(){
+    console.log(this.$root)
+  }
+}
+</script>

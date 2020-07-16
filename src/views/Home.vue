@@ -1,6 +1,5 @@
 <template>
-  <div class="home">
-  </div>
+  <h1 class="text-center">Welcome</h1>
 </template>
 
 <script>
